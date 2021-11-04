@@ -5,7 +5,6 @@
   "description": "transform a RegExp named group match to a more useful object",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://git@github.com:stagas/match-to-token.git"
