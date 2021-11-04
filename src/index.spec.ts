@@ -1,7 +1,7 @@
-import { matchToToken, Token } from './'
+import { matchToToken } from './'
 
 it('converts match to token', () => {
-  const token = matchToToken('foo'.match(/(?<bar>[o])/))
+  const token = matchToToken('foo'.match(/(?<bar>[o])/)!)
   expect(token).toBeTruthy()
   expect(token).toEqual({
     group: 'bar',
@@ -11,7 +11,7 @@ it('converts match to token', () => {
 })
 
 it('returns void when nothing matched', () => {
-  const token = matchToToken('foo'.match(/(?<bar>[x])/))
+  const token = matchToToken('foo'.match(/(?<bar>[x])/)!)
   expect(token).toBeFalsy()
 })
 

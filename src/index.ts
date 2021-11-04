@@ -1,3 +1,5 @@
+import { NonNull } from './util'
+
 /**
  * Token interface
  */
@@ -21,15 +23,12 @@ export interface Token {
  */
 export type TokenReturn = Token | void
 
-const NonNull = (e: [string, string?]) => e[1] != null
-
 /**
  * Convert a match object from `string.match()` or `string.matchAll()`
  * with a named group RegExp such as `/(?<group>[a-z])/` to a more
  * useful {@link Token} object.
  *
- * @param match A match object
- * @returns
+ * @param match The match object
  */
 export const matchToToken = (match: RegExpMatchArray): TokenReturn => {
   if (match?.index == null) return
