@@ -8,6 +8,9 @@ const match = 'cde'.match(
 )!
 
 runBenchScript({
+  runs: 1,
+  name: 'bench',
+  reportDirPath: './bench/results',
   fns: {
     'Object.entries()': done => {
       const result = Object.entries(
@@ -26,6 +29,5 @@ runBenchScript({
       }
       done.resolve()
     }
-  },
-  runs: 1
+  }
 })
