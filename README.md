@@ -54,55 +54,18 @@ for (const match of matches) {
 
 #### Table of Contents
 
+*   [matchToToken](#matchtotoken)
+    *   [Parameters](#parameters)
 *   [Token](#token)
+    *   [Parameters](#parameters-1)
     *   [group](#group)
     *   [value](#value)
     *   [index](#index)
-*   [TokenReturn](#tokenreturn)
-*   [matchToToken](#matchtotoken)
-    *   [Parameters](#parameters)
-
-### Token
-
-[src/index.ts:6-19](https://github.com/stagas/match-to-token/blob/66e05f167b9cddf7cca8418f3938683f65c2f1d8/src/index.ts#L6-L19 "Source code on GitHub")
-
-Token interface
-
-#### group
-
-[src/index.ts:10-10](https://github.com/stagas/match-to-token/blob/66e05f167b9cddf7cca8418f3938683f65c2f1d8/src/index.ts#L10-L10 "Source code on GitHub")
-
-The group it matched.
-
-Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
-
-#### value
-
-[src/index.ts:14-14](https://github.com/stagas/match-to-token/blob/66e05f167b9cddf7cca8418f3938683f65c2f1d8/src/index.ts#L14-L14 "Source code on GitHub")
-
-The value of the match.
-
-Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
-
-#### index
-
-[src/index.ts:18-18](https://github.com/stagas/match-to-token/blob/66e05f167b9cddf7cca8418f3938683f65c2f1d8/src/index.ts#L18-L18 "Source code on GitHub")
-
-The index position of the match.
-
-Type: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)
-
-### TokenReturn
-
-[src/index.ts:24-24](https://github.com/stagas/match-to-token/blob/66e05f167b9cddf7cca8418f3938683f65c2f1d8/src/index.ts#L21-L23 "Source code on GitHub")
-
-The return value type.
-
-Type: ([Token](#token) | void)
+    *   [source](#source)
 
 ### matchToToken
 
-[src/index.ts:33-49](https://github.com/stagas/match-to-token/blob/66e05f167b9cddf7cca8418f3938683f65c2f1d8/src/index.ts#L33-L49 "Source code on GitHub")
+[src/index.ts:20-28](https://github.com/stagas/match-to-token/blob/e2711d8f14f9d1fe3b5bdfa8f9e8883991c08256/src/index.ts#L20-L28 "Source code on GitHub")
 
 Convert a match object from `string.match()` or `string.matchAll()`
 with a named group RegExp such as `/(?<group>[a-z])/` to a more
@@ -110,9 +73,51 @@ useful [Token](#token) object.
 
 #### Parameters
 
-*   `match` **RegExpMatchArray** The match object
+*   `match` **(RegExpMatchArray | null)** The match object
 
-Returns **[TokenReturn](#tokenreturn)** 
+Returns **(MatchToken | null)**&#x20;
+
+### Token
+
+[src/token.ts:6-44](https://github.com/stagas/match-to-token/blob/e2711d8f14f9d1fe3b5bdfa8f9e8883991c08256/src/token.ts#L6-L44 "Source code on GitHub")
+
+**Extends String**
+
+Token interface
+
+#### Parameters
+
+*   `value` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+*   `group` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+*   `source` **RegExpMatchArrayLike**&#x20;
+
+#### group
+
+[src/token.ts:13-13](https://github.com/stagas/match-to-token/blob/e2711d8f14f9d1fe3b5bdfa8f9e8883991c08256/src/token.ts#L13-L13 "Source code on GitHub")
+
+The group it matched.
+
+Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+#### value
+
+[src/token.ts:17-19](https://github.com/stagas/match-to-token/blob/e2711d8f14f9d1fe3b5bdfa8f9e8883991c08256/src/token.ts#L17-L19 "Source code on GitHub")
+
+The value of the match.
+
+#### index
+
+[src/token.ts:23-25](https://github.com/stagas/match-to-token/blob/e2711d8f14f9d1fe3b5bdfa8f9e8883991c08256/src/token.ts#L23-L25 "Source code on GitHub")
+
+The index position of the match.
+
+#### source
+
+[src/token.ts:29-29](https://github.com/stagas/match-to-token/blob/e2711d8f14f9d1fe3b5bdfa8f9e8883991c08256/src/token.ts#L29-L29 "Source code on GitHub")
+
+The input string.
+
+Type: RegExpMatchArrayLike
 
 ## Contribute
 
