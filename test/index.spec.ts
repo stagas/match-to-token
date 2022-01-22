@@ -1,4 +1,4 @@
-import { matchToToken, RegExpToken, MatchToken, Token } from './'
+import { matchToToken, RegExpToken, MatchToken, Token } from '../src'
 
 it('converts match to token', () => {
   const token = 'foo'.match(new RegExpToken(/(?<bar>[o])/)) as unknown as Token
