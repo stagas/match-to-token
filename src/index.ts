@@ -20,7 +20,8 @@ export { MatchToken }
 export const matchToToken = (match: RegExpMatchArray | null): MatchToken | null => {
   if (!match) return null
   if (match.index == null) return null
-  if (!match.groups) throw new TypeError('RegExp match is missing named groups such as: /(?<group>[a-z])/')
+  if (!match.groups)
+    throw new TypeError('RegExp match is missing named groups such as: /(?<group>[a-z])/')
   const entry = Object.entries(match.groups).find(NonNull)
   if (entry) return MatchToken.create(entry[1], entry[0], match as RegExpMatchArrayLike)
   return null
