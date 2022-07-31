@@ -1,5 +1,5 @@
-import { NonNull } from './util'
 import { Token as MatchToken } from './token'
+import { NonNull } from './util'
 
 export interface RegExpMatchArrayLike {
   index: number

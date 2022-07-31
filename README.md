@@ -13,7 +13,7 @@ transform a RegExp named group match to a more useful object
  · <a href="https://github.com/stagas/match-to-token/issues">🖐️ <strong>Help</strong></a>
 </p>
 
-***
+---
 
 ## Install
 
@@ -54,14 +54,14 @@ for (const match of matches) {
 
 #### Table of Contents
 
-*   [matchToToken](#matchtotoken)
-    *   [Parameters](#parameters)
-*   [Token](#token)
-    *   [Parameters](#parameters-1)
-    *   [group](#group)
-    *   [value](#value)
-    *   [index](#index)
-    *   [source](#source)
+- [matchToToken](#matchtotoken)
+  - [Parameters](#parameters)
+- [Token](#token)
+  - [Parameters](#parameters-1)
+  - [group](#group)
+  - [value](#value)
+  - [index](#index)
+  - [source](#source)
 
 ### matchToToken
 
@@ -73,7 +73,7 @@ useful [Token](#token) object.
 
 #### Parameters
 
-*   `match` **(RegExpMatchArray | null)** The match object
+- `match` **(RegExpMatchArray | null)** The match object
 
 Returns **(MatchToken | null)**&#x20;
 
@@ -87,9 +87,9 @@ Token interface
 
 #### Parameters
 
-*   `value` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
-*   `group` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
-*   `source` **RegExpMatchArrayLike**&#x20;
+- `value` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+- `group` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+- `source` **RegExpMatchArrayLike**&#x20;
 
 #### group
 

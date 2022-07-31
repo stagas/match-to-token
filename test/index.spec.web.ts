@@ -1,4 +1,4 @@
-import { matchToToken, RegExpToken, MatchToken, Token } from '../src'
+import { MatchToken, matchToToken, RegExpToken, Token } from '../src'
 
 it('converts match to token', () => {
   const token = 'foo'.match(new RegExpToken(/(?<bar>[o])/)) as unknown as Token
@@ -14,16 +14,16 @@ it('converts match to token', () => {
     value: 'o',
     index: 1,
     source: {
-      input: 'foo'
-    }
+      input: 'foo',
+    },
   })
   expect(token.as('x')).toMatchObject({
     group: 'bar',
     value: 'x',
     index: 1,
     source: {
-      input: 'foo'
-    }
+      input: 'foo',
+    },
   })
 })
 
@@ -47,16 +47,16 @@ it('accepts match from string.matchAll()', () => {
     value: 'o',
     index: 1,
     source: {
-      input: 'foo'
-    }
+      input: 'foo',
+    },
   })
   expect(token.as('x')).toMatchObject({
     group: 'bar',
     value: 'x',
     index: 1,
     source: {
-      input: 'foo'
-    }
+      input: 'foo',
+    },
   })
 })
 
