@@ -1,10 +1,20 @@
 import type { RegExpMatchArrayLike } from './'
 
+export interface TokenJson {
+  value: string
+  group: string
+  source: {
+    match: string[]
+    index: number
+    input: string
+  }
+}
+
 /**
  * Token interface
  */
 export class Token extends String {
-  static create(value: string, group: string, source: RegExpMatchArrayLike): Token {
+  static create(value: string, group: string, source: RegExpMatchArrayLike) {
     return new Token(value, group, source)
   }
   /**
@@ -28,10 +38,28 @@ export class Token extends String {
    */
   source!: RegExpMatchArrayLike
 
-  constructor(value: string, group: string, source: RegExpMatchArrayLike) {
-    super(value)
-    this.group = group
+  constructor(value: TokenJson)
+  constructor(value: string, group: string, source: RegExpMatchArrayLike)
+  constructor(value: string | TokenJson, group?: string, source?: RegExpMatchArrayLike) {
+    super(typeof value === 'object' ? value.value : value)
+    if (typeof value === 'object') {
+      group = value.group
+      source = Object.assign(value.source.match, { index: value.source.index, input: value.source.input })
+    }
+    this.group = group!
     Object.defineProperty(this, 'source', { enumerable: false, value: source })
+  }
+
+  toJSON() {
+    return {
+      value: this.value,
+      group: this.group,
+      source: {
+        match: (this.source as unknown as string[]).slice(),
+        index: this.source.index,
+        input: this.source.input,
+      },
+    } as TokenJson
   }
 
   is(group: string, value?: string) {

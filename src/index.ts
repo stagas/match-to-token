@@ -1,4 +1,4 @@
-import { Token as MatchToken } from './token'
+import { Token } from './token'
 import { NonNull } from './util'
 
 export interface RegExpMatchArrayLike {
@@ -6,9 +6,8 @@ export interface RegExpMatchArrayLike {
   input: string
 }
 
-export type Token = MatchToken & string
-
-export { MatchToken }
+export { Token }
+export type { TokenJson } from './token'
 
 /**
  * Convert a match object from `string.match()` or `string.matchAll()`
@@ -17,13 +16,13 @@ export { MatchToken }
  *
  * @param match The match object
  */
-export const matchToToken = (match: RegExpMatchArray | null): MatchToken | null => {
+export const matchToToken = (match: RegExpMatchArray | null): Token | null => {
   if (!match) return null
   if (match.index == null) return null
   if (!match.groups)
     throw new TypeError('RegExp match is missing named groups such as: /(?<group>[a-z])/')
   const entry = Object.entries(match.groups).find(NonNull)
-  if (entry) return MatchToken.create(entry[1], entry[0], match as RegExpMatchArrayLike)
+  if (entry) return Token.create(entry[1], entry[0], match as RegExpMatchArrayLike)
   return null
 }
 
